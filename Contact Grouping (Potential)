@@ -1,0 +1,46 @@
+final String[] GROUP_PROJECTION = new String[] {
+            ContactsContract.Groups._ID, ContactsContract.Groups.TITLE };
+    cursor = getContentResolver().query(
+    ContactsContract.Groups.CONTENT_URI, GROUP_PROJECTION, null,
+            null, ContactsContract.Groups.TITLE);
+
+            GlobalConfig.groupList.clear();
+    Group g = new Group();
+    g.GroupIdList += "0";
+    g.setGroupTitle("ALL");
+    GlobalConfig.groupList.add(g);
+    while (cursor.moveToNext()) {
+
+        String id = cursor.getString(cursor
+                .getColumnIndex(ContactsContract.Groups._ID));
+
+        String gTitle = (cursor.getString(cursor
+                .getColumnIndex(ContactsContract.Groups.TITLE)));
+if (gTitle.contains("Group:")) {
+            gTitle = gTitle.substring(gTitle.indexOf("Group:") + 6).trim();
+
+        }
+        if (gTitle.contains("Favorite_")) {
+            gTitle = "Favorites";
+        }
+        if (gTitle.contains("Starred in Android")
+                || gTitle.contains("My Contacts")) {
+            continue;
+        }
+
+        Group gObj = new Group();
+
+        int pos = GlobalConfig.GroupContainsTitle(gTitle);
+        if (pos != -1) {
+            gObj = GlobalConfig.groupList.get(pos);
+            gObj.GroupIdList += "," + id;
+            GlobalConfig.groupList.set(pos, gObj);
+
+        } else {
+            gObj.GroupIdList += id;
+            gObj.setGroupTitle(gTitle);
+            GlobalConfig.groupList.add(gObj);
+
+        }
+
+    }
