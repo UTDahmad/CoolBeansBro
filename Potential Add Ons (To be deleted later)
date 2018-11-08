@@ -1,0 +1,24 @@
+//Finding a number search bar
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+  //Finding the contact in the search bar
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+  >
+   <Button
+   
+    //Button formatting
+      android:id="@+id/btpick_contact"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Pick number from contacts list"
+      android:layout_gravity="center"
+      >
+   </Button>
+
+
+</LinearLayout>
+
