@@ -6,4 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingAddContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/holo_green_light"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        app:useCompatPadding="false"
+        tools:srcCompat="@drawable/ic_add_contact" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingGroups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/holo_blue_bright"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/floatingAddContact"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        app:useCompatPadding="false"
+        tools:srcCompat="@drawable/ic_group" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingEmergencyCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/floatingGroups"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        app:useCompatPadding="false"
+        tools:srcCompat="@drawable/ic_emergency_call" />
 </android.support.constraint.ConstraintLayout>
