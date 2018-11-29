@@ -38,7 +38,8 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         app:useCompatPadding="false"
-        app:srcCompat="@drawable/ic_add_contact" />
+        app:srcCompat="@drawable/ic_add_contact"
+        android:focusable="true" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingGroups"
@@ -55,7 +56,8 @@
         app:layout_constraintEnd_toStartOf="@+id/floatingAddContact"
 
         app:useCompatPadding="false"
-        app:srcCompat="@drawable/ic_group" />
+        app:srcCompat="@drawable/ic_group"
+        android:focusable="true" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingEmergencyCall"
@@ -72,5 +74,6 @@
         app:layout_constraintEnd_toStartOf="@+id/floatingGroups"
 
         app:useCompatPadding="false"
-        app:srcCompat="@drawable/ic_emergency_call" />
+        app:srcCompat="@drawable/ic_emergency_call"
+        android:focusable="true" />
 </android.support.constraint.ConstraintLayout>
