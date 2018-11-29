@@ -5,7 +5,7 @@
 
     <item
 
-        android:id="@+id/main_search"
+        android:id="@+id/all_contacts_search"
         android:title=""
         android:icon="@drawable/ic_search_button"
         app:actionViewClass="android.widget.SearchView"
