@@ -31,7 +31,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:visibility="visible"
-        android:onClick="AddContactActivity"
+
         app:backgroundTint="@android:color/holo_green_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"

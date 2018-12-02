@@ -1,6 +1,7 @@
 package com.coolbeansbro.contactsmanager;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private FloatingActionButton addContactButton;
 
 
 
@@ -28,20 +29,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*
-        Button addContactButton = findViewById(R.id.floatingAddContact);
+        all_contacts_search = (ListView) findViewById(R.id.all_contacts_search);
+
+        addContactButton = findViewById(R.id.floatingAddContact);
+
 
         addContactButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AddContactActivity.class));
+                AddContactActivity();
             }
-        });*/
+        });
 
 
 
-        all_contacts_search = (ListView) findViewById(R.id.all_contacts_search);
 
 
     }
@@ -69,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void AddContactActivity(View v)
+    public void AddContactActivity()
     {
-        startActivity(new Intent(MainActivity.this, AddContactActivity.class));
+        Intent intent = new Intent(this, AddContactActivity.class);
+        startActivity(intent);
     }
 }
