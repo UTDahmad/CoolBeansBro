@@ -4,18 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AddContactActivity">
 
-    
 
         <EditText
             android:id="@+id/name_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="@string/contact_name"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:hint="Name"
-            android:importantForAutofill="no" />
-   
+            android:padding="8dp"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/phone1_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/contact_number"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:padding="8dp"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/phone2_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/contact_alternate_number"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:padding="8dp"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/contact_email"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/birthday_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/contact_birthday"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:padding="8dp"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/group_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/contact_group"
+            android:importantForAutofill="no"
+            android:inputType="textCapCharacters"
+            android:padding="8dp"
+            tools:targetApi="o" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Add Contact" />
+
 </LinearLayout>
