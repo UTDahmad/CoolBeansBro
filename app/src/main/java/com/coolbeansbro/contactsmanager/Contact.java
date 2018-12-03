@@ -9,19 +9,21 @@ public class Contact {
     private String birthday;
     private String group;
     private String photo;
+    private String notes;
 
 
     public Contact() {
 
     }
 
-    public Contact(String name, String number, String alternateNumber, String email, String birthday, String group) {
+    public Contact(String name, String number, String alternateNumber, String email, String birthday, String group, String notes) {
         this.name = name;
         this.number = number;
         this.email = email;
         this.alternateNumber = alternateNumber;
         this.birthday = birthday;
         this.group = group;
+        this.notes = notes;
     }
 
     public String getName() {
@@ -79,4 +81,6 @@ public class Contact {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    public String getNotes(String notes){ return notes; }
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:isScrollContainer="true"
     tools:context=".AddContactActivity">
 
 
@@ -56,17 +57,17 @@
             android:padding="8dp"
             tools:targetApi="o" />
 
-        <EditText
-            android:id="@+id/birthday_input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/contact_birthday"
-            android:importantForAutofill="no"
-            android:inputType="date"
-            android:padding="8dp"
-            tools:targetApi="o" />
+    <EditText
+        android:id="@+id/birthday_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/contact_birthday"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        android:padding="8dp"
+        tools:targetApi="o" />
 
         <EditText
             android:id="@+id/group_input"
