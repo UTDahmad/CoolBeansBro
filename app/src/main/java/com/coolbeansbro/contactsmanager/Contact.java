@@ -5,14 +5,23 @@ public class Contact {
     private String name;
     private String number;
     private String email;
-
+    private String alternateNumber;
+    private String birthday;
+    private String group;
     private String photo;
 
-    public Contact(String name, String number, String email, String photo) {
+
+    public Contact() {
+
+    }
+
+    public Contact(String name, String number, String alternateNumber, String email, String birthday, String group) {
         this.name = name;
         this.number = number;
         this.email = email;
-        this.photo = photo;
+        this.alternateNumber = alternateNumber;
+        this.birthday = birthday;
+        this.group = group;
     }
 
     public String getName() {
@@ -39,16 +48,35 @@ public class Contact {
         this.email = email;
     }
 
+    public String getAlternateNumber() {
+        return alternateNumber;
+    }
+
+    public void setAlternateNumber(String alternateNumber) {
+        this.alternateNumber = alternateNumber;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
     public String getPhoto() {
         return photo;
     }
 
     public void setPhoto(String photo) {
         this.photo = photo;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }
