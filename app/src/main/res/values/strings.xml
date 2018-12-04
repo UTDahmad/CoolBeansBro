@@ -8,6 +8,7 @@
     <string name="contact_birthday">Birthday</string>
     <string name="contact_group">Group</string>
     <string name="enterName">Name</string>
+    <string name="make_emergency_call">Make Emergency Call</string>
 
 
 </resources>

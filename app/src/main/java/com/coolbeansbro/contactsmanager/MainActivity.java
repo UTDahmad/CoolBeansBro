@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton addContactButton;
-
+    private FloatingActionButton emergencyCallButton;
 
 
     ListView all_contacts_search;
@@ -32,13 +32,20 @@ public class MainActivity extends AppCompatActivity {
         all_contacts_search = (ListView) findViewById(R.id.all_contacts_search);
 
         addContactButton = findViewById(R.id.floatingAddContact);
-
-
         addContactButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
                 AddContactActivity();
+            }
+        });
+
+        emergencyCallButton = findViewById(R.id.floatingEmergencyCall);
+        emergencyCallButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                EmergencyCallActivity();
             }
         });
 
@@ -74,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
     public void AddContactActivity()
     {
         Intent intent = new Intent(this, AddContactActivity.class);
+        startActivity(intent);
+    }
+
+    public void EmergencyCallActivity()
+    {
+        Intent intent = new Intent(this, EmergencyCallActivity.class);
         startActivity(intent);
     }
 }

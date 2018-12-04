@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddContactActivity" />
+        <activity android:name=".EmergencyCallActivity"></activity>
     </application>
 
 </manifest>
