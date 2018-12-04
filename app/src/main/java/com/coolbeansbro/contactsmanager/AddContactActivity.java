@@ -9,6 +9,11 @@ import android.widget.EditText;
 public class AddContactActivity extends AppCompatActivity {
 
     EditText name;
+    EditText number;
+    EditText email;
+    EditText alternateNumber;
+    EditText birthday;
+    EditText group;
 
 
     @Override
@@ -16,6 +21,11 @@ public class AddContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
         name = findViewById(R.id.name_input);
+        number = findViewById(R.id.phone1_input);
+        alternateNumber = findViewById(R.id.phone2_input);
+        email = findViewById(R.id.name_input);
+        birthday = findViewById(R.id.birthday_input);
+        group = findViewById(R.id.group_input);
 
 
     }

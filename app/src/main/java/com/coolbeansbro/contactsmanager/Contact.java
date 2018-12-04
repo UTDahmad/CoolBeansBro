@@ -8,22 +8,22 @@ public class Contact {
     private String alternateNumber;
     private String birthday;
     private String group;
-    private String photo;
-    private String notes;
+   // private String photo;
+    //private String notes;
 
 
     public Contact() {
 
     }
 
-    public Contact(String name, String number, String alternateNumber, String email, String birthday, String group, String notes) {
+    public Contact(String name, String number, String alternateNumber, String email, String birthday, String group) {
         this.name = name;
         this.number = number;
         this.email = email;
         this.alternateNumber = alternateNumber;
         this.birthday = birthday;
         this.group = group;
-        this.notes = notes;
+       // this.notes = notes;
     }
 
     public String getName() {
@@ -74,13 +74,13 @@ public class Contact {
         this.group = group;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
+   // public String getPhoto() {
+   //     return photo;
+    //}
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+   // public void setPhoto(String photo) {
+   //     this.photo = photo;
+   // }
 
-    public String getNotes(String notes){ return notes; }
+   // public String getNotes(String notes){ return notes; }
 }
