@@ -8,7 +8,7 @@ public class Contact {
     private String alternateNumber;
     private String birthday;
     private String group;
-   // private String photo;
+    // private String photo;
     //private String notes;
 
 
@@ -23,7 +23,7 @@ public class Contact {
         this.alternateNumber = alternateNumber;
         this.birthday = birthday;
         this.group = group;
-       // this.notes = notes;
+        // this.notes = notes;
     }
 
     public String getName() {
@@ -74,13 +74,32 @@ public class Contact {
         this.group = group;
     }
 
-   // public String getPhoto() {
-   //     return photo;
+    // public String getPhoto() {
+    //     return photo;
     //}
 
-   // public void setPhoto(String photo) {
-   //     this.photo = photo;
-   // }
+    // public void setPhoto(String photo) {
+    //     this.photo = photo;
+    // }
 
-   // public String getNotes(String notes){ return notes; }
+    // public String getNotes(String notes){ return notes; }
+
+
+    @Override
+
+    public String toString() {
+
+        return "Contact{" +
+
+                "name='" + name + '\'' +
+
+                ", number='" + number + '\'' +
+
+                ", alternativeNumber='" + alternateNumber + '\'' +
+
+                ", email='" + email + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", group='" + group + '\'' +
+                '}';
+    }
 }

@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.io.IOException;
-import java.util.*;
 
 public class EmergencyCallActivity extends AppCompatActivity {
 
@@ -75,7 +74,7 @@ public class EmergencyCallActivity extends AppCompatActivity {
     {
         try {
             Geocoder g = new Geocoder(this);
-            List<Address> addresses = null;
+            java.util.List<Address> addresses = null;
             addresses = g.getFromLocation(32.9869,-96.75,1);
             countryString = addresses.get(0).getCountryName();
 
