@@ -11,7 +11,7 @@
         android:textSize="20sp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        />
 
     <TextView
         android:id="@+id/phone1_output"
