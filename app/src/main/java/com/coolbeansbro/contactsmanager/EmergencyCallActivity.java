@@ -47,6 +47,8 @@ public class EmergencyCallActivity extends AppCompatActivity {
             countryOutput.setText(countryString);
 
         }
+
+
         emergencyNumber.setText(returnEmergencyNumber(countryString));
 
     }
@@ -57,10 +59,47 @@ public class EmergencyCallActivity extends AppCompatActivity {
         {
             return "911";
         }
-        else
+        else if (country.contains("Algeria"))
+        {
+            return "14";
+        }
+        else if (country.contains("Egypt"))
+        {
+            return "123";
+        }
+        else if (country.contains("China"))
+        {
+            return "120";
+        }
+        else if (country.contains("India"))
+        {
+            return "102";
+        }
+        else if (country.contains("Indonesia"))
+        {
+            return "119";
+        }
+        else if (country.contains("United Arab Emirates"))
+        {
+            return "112";
+        }
+        else if (country.contains("Mexico"))
+        {
+            return "066";
+        }
+        else if (country.contains("Canada"))
+        {
+            return "911";
+        }
+        else if (country.contains("Australia"))
         {
             return "000";
         }
+        else if (country.contains("United Kingdom"))
+        {
+            return "999";
+        }
+        else return "???";
     }
 
     public void setCoordinates(Location location)
@@ -75,7 +114,7 @@ public class EmergencyCallActivity extends AppCompatActivity {
         try {
             Geocoder g = new Geocoder(this);
             java.util.List<Address> addresses = null;
-            addresses = g.getFromLocation(32.9869,-96.75,1);
+            addresses = g.getFromLocation(latitude,longitude,1);
             countryString = addresses.get(0).getCountryName();
 
         }
