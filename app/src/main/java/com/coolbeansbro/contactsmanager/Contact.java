@@ -1,7 +1,18 @@
 package com.coolbeansbro.contactsmanager;
 
+
+/**
+ * This class is for contacts objects that have multiple string
+ * data values associated with them. For use alongside database and
+ * lisviews.
+ *
+ * @author Ahmed Khan
+ * @version 1.1
+ */
 public class Contact {
 
+
+    //initialize strings
     private String name;
     private String number;
     private String email;
@@ -11,11 +22,11 @@ public class Contact {
     // private String photo;
     //private String notes;
 
-
     public Contact() {
 
     }
 
+    //Constructor that stores all contact information
     public Contact(String name, String number, String alternateNumber, String email, String birthday, String group) {
         this.name = name;
         this.number = number;
@@ -23,9 +34,11 @@ public class Contact {
         this.alternateNumber = alternateNumber;
         this.birthday = birthday;
         this.group = group;
-        // this.notes = notes;
+
     }
 
+
+    //get and set methods
     public String getName() {
         return name;
     }
@@ -87,19 +100,16 @@ public class Contact {
 
     @Override
 
+    /**
+     * Returns a string that will be used later with the search function
+     */
     public String toString() {
 
-        return "Contact{" +
-
-                "name='" + name + '\'' +
-
-                ", number='" + number + '\'' +
-
-                ", alternativeNumber='" + alternateNumber + '\'' +
-
-                ", email='" + email + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", group='" + group + '\'' +
-                '}';
+        return  name + ' ' +
+                number + ' ' +
+                alternateNumber + ' ' +
+                email + ' ' +
+                birthday + ' ' +
+                group;
     }
 }

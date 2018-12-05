@@ -4,15 +4,23 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
+/**
+ * Database class that will eventually be used to store contacts
+ *
+ * @author Ahmed Khan
+ * @version 0.1
+ */
 public class DatabaseController extends SQLiteOpenHelper {
 
-public static final int DB_VERSION = 1;
+//intialize contacts database name
 public static final String DB_NAME = "contactDB";
 
 
+    //Set up database controller constructor
     public DatabaseController(Context context) {
 
-        super(context, DB_NAME, null, DB_VERSION);
+        super(context, DB_NAME, null, 1);
 
     }
 

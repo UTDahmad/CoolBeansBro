@@ -6,8 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
+/**
+ * This class connects the add contact xml to the java code.
+ * A contact object is saved from the data inputted by the user
+ * when the add button is pressed.
+ *
+ * @version 1.0
+ */
 public class AddContactActivity extends AppCompatActivity {
 
+    //initialize EditText objects
     EditText name;
     EditText number;
     EditText email;
