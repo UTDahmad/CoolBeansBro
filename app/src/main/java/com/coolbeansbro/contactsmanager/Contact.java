@@ -2,19 +2,59 @@ package com.coolbeansbro.contactsmanager;
 
 
 /**
- * This class is for contacts objects that have multiple string
- * data values associated with them. For use alongside database and
- * lisviews.
+ * This class is for contacts objects that have a phone number associated
  *
  * @author Ahmed Khan
- * @version 1.1
+ * @version 2.0
  */
 public class Contact {
+    private String number;
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+}
+
+
+
+/**
+ * This class is for emergencyContacts objects that have an emergency
+ * number and a country name. This class extends the contact class
+ *
+ * @author Ahmed Khan
+ * @version 1.0
+ */
+class emergencyContact extends Contact {
+
+    private String countryName;
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+}
+
+/**
+ * This class is for userContacts objects that have multiple string
+ * data values associated with them. For use alongside database and
+ * lisviews. This class extends the contact class
+ *
+ * @author Ahmed Khan
+ * @version 1.0
+ */
+
+class userContact extends Contact {
 
 
     //initialize strings
     private String name;
-    private String number;
     private String email;
     private String alternateNumber;
     private String birthday;
@@ -22,14 +62,14 @@ public class Contact {
     // private String photo;
     //private String notes;
 
-    public Contact() {
+    public userContact() {
 
     }
 
     //Constructor that stores all contact information
-    public Contact(String name, String number, String alternateNumber, String email, String birthday, String group) {
+    public userContact(String name, String number, String alternateNumber, String email, String birthday, String group) {
         this.name = name;
-        this.number = number;
+        this.setNumber(number);
         this.email = email;
         this.alternateNumber = alternateNumber;
         this.birthday = birthday;
@@ -47,13 +87,7 @@ public class Contact {
         this.name = name;
     }
 
-    public String getNumber() {
-        return number;
-    }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
 
     public String getEmail() {
         return email;
@@ -106,7 +140,7 @@ public class Contact {
     public String toString() {
 
         return  name + ' ' +
-                number + ' ' +
+                this.getNumber() + ' ' +
                 alternateNumber + ' ' +
                 email + ' ' +
                 birthday + ' ' +

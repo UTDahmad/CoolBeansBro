@@ -29,7 +29,7 @@ public class EmergencyCallActivity extends AppCompatActivity {
     //private data
     private double latitude;
     private double longitude;
-    private String countryString;
+    private emergencyContact eContact;
     private TextView countryOutput;
     private TextView emergencyNumber;
     private LocationManager currentLocation;
@@ -39,6 +39,8 @@ public class EmergencyCallActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency_call);
 
+
+        eContact = new emergencyContact();
 
         //Initialize the two output objects that will be provided
         //with string that provide the user's current country
@@ -65,17 +67,21 @@ public class EmergencyCallActivity extends AppCompatActivity {
 
             //Call function to set the country name
             //from the provided location data
-            setCountry();
+            eContact.setCountryName(returnCountry());
+
+            //setCountry();
 
             //Call function to place the correct emergency phone number string
             //in the countryString variable
-            countryOutput.setText(countryString);
+            countryOutput.setText(eContact.getCountryName());
 
         }
 
         //Pass on the string information to the object that will display the correct text
         //on the user's display
-        emergencyNumber.setText(returnEmergencyNumber(countryString));
+        eContact.setNumber(returnEmergencyNumber(eContact.getCountryName()));
+
+        emergencyNumber.setText(eContact.getNumber());
 
     }
 
@@ -157,7 +163,7 @@ public class EmergencyCallActivity extends AppCompatActivity {
      * name is extracted from the address and returned
      *
      */
-    public void setCountry()
+    public String returnCountry()
     {
         try {
 
@@ -171,12 +177,13 @@ public class EmergencyCallActivity extends AppCompatActivity {
 
 
             //Extract the country name from the current address
-            countryString = addresses.get(0).getCountryName();
+            return addresses.get(0).getCountryName();
 
         }
         catch (IOException e){
             e.printStackTrace();
         }
 
+        return "unknown";
     }
 }
