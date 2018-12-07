@@ -121,8 +121,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        if (checkPermissions())
-            loadContacts();
+        if (checkPermissions()) {
+            contactsList = loadContacts();
+            adapter.notifyDataSetChanged();
+        }
 
     }
 
@@ -159,7 +161,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void loadContacts(){
+    /**
+     * @return loaded contacts from android database
+     */
+    public ArrayList<Contact> loadContacts(){
+        ArrayList<Contact> tempContacts = new ArrayList<>();
         ContentResolver contentResolver = getContentResolver();
         Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
         if (cursor.getCount() > 0) {
@@ -189,28 +195,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    contactsList.add(contact);
-
-
+                    tempContacts.add(contact);
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        adapter.notifyDataSetChanged();
+        return tempContacts;
     }
 
 
@@ -290,7 +279,8 @@ public class MainActivity extends AppCompatActivity {
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
-                    loadContacts();
+                    contactsList = loadContacts();
+                    adapter.notifyDataSetChanged();
                 } else {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.

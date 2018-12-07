@@ -36,9 +36,8 @@ public class AddContactActivityTest {
 
         if(x.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\-\\_\\.]+\\.[a-zA-Z0-9]{3}"))
             System.out.println("Valid");
-        )
         else{
-            System.out.println("Invalid")
+            System.out.println("Invalid");
         }
 
     }

@@ -96,7 +96,6 @@ class userContact extends Contact {
         this.setNumber(number);
         this.email = email;
         this.alternateNumber = alternateNumber;
-        this.birthday = birthday;
         this.group = group;
 
     }
@@ -129,13 +128,6 @@ class userContact extends Contact {
         this.alternateNumber = alternateNumber;
     }
 
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
     public String getGroup() {
         return group;
