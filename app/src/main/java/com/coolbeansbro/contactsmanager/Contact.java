@@ -36,6 +36,7 @@ public class Contact {
         this.number = number;
     }
 
+
 }
 
 
@@ -58,6 +59,11 @@ class emergencyContact extends Contact {
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
+
+    @Override
+    public String toString() {
+        return countryName + ' ' + getNumber();
+    }
 }
 
 /**
@@ -78,8 +84,7 @@ class userContact extends Contact {
     private String alternateNumber;
     private String birthday;
     private String group;
-    // private String photo;
-    //private String notes;
+
 
     public userContact() {
 
@@ -140,15 +145,6 @@ class userContact extends Contact {
         this.group = group;
     }
 
-    // public String getPhoto() {
-    //     return photo;
-    //}
-
-    // public void setPhoto(String photo) {
-    //     this.photo = photo;
-    // }
-
-    // public String getNotes(String notes){ return notes; }
 
 
     @Override
