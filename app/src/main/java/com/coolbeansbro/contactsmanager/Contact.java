@@ -9,6 +9,24 @@ package com.coolbeansbro.contactsmanager;
  */
 public class Contact {
     private String number;
+    private String name;
+    private String ID;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getNumber() {
         return number;
@@ -18,12 +36,7 @@ public class Contact {
         this.number = number;
     }
 
-    @Override
-    public String toString() {
-        return "Contact{" +
-                "number='" + number + '\'' +
-                '}';
-    }
+
 }
 
 
