@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * This class connects the add contact xml to the java code.
@@ -47,23 +48,26 @@ public class AddContactActivity extends AppCompatActivity {
         String secondaryPhoneNumber = alternateNumber.getText().toString();
         String groupString = group.getText().toString();
 
-        //Should do checks on phoneNumber, secondaryPhoneNumber etc
+        //Should do checks on phoneNumber, name etc
+        if(!(nameString.equals("")&& phoneNumber.equals(""))) {
 
 
+            Intent contactIntent = new Intent(ContactsContract.Intents.Insert.ACTION);
+            contactIntent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
 
+            //Start contact activity to add contact data
+            contactIntent
+                    .putExtra(ContactsContract.Intents.Insert.NAME, nameString)
+                    .putExtra(ContactsContract.Intents.Insert.PHONE, phoneNumber)
+                    .putExtra(ContactsContract.Intents.Insert.EMAIL, emailString)
+                    .putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, secondaryPhoneNumber)
+                    .putExtra(ContactsContract.Intents.Insert.NOTES, groupString);
 
-        Intent contactIntent = new Intent(ContactsContract.Intents.Insert.ACTION);
-        contactIntent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+            startActivityForResult(contactIntent, 1);
 
-        //Start contact activity to add contact data
-        contactIntent
-                .putExtra(ContactsContract.Intents.Insert.NAME, nameString)
-                .putExtra(ContactsContract.Intents.Insert.PHONE, phoneNumber)
-                .putExtra(ContactsContract.Intents.Insert.EMAIL, emailString)
-                .putExtra(ContactsContract.Intents.Insert.SECONDARY_PHONE, secondaryPhoneNumber)
-                .putExtra(ContactsContract.Intents.Insert.NOTES, groupString);
-
-        startActivityForResult(contactIntent, 1);
+        }
+        else
+            Toast.makeText(this,"Invalid input", Toast.LENGTH_SHORT).show();
     }
 
 

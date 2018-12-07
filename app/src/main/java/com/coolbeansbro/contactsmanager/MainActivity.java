@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     ListView contactsListView;
     ContactDisplay adapter;
 
-    ArrayList<Contact> contactsList  = new ArrayList<>();
+    ArrayList<userContact> contactsList  = new ArrayList<>();
 
     final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 111;
 
@@ -122,8 +123,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (checkPermissions()) {
-            contactsList = loadContacts();
+            contactsList.addAll(loadContacts());
+            adapter.initFilter();
             adapter.notifyDataSetChanged();
+            for (userContact c:contactsList)
+                Log.d("contact", c.getName());
         }
 
     }
@@ -164,8 +168,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @return loaded contacts from android database
      */
-    public ArrayList<Contact> loadContacts(){
-        ArrayList<Contact> tempContacts = new ArrayList<>();
+    public ArrayList<userContact> loadContacts(){
+        ArrayList<userContact> tempContacts = new ArrayList<>();
         ContentResolver contentResolver = getContentResolver();
         Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
         if (cursor.getCount() > 0) {
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
                     String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 
-                    Contact contact = new Contact();
+                    userContact contact = new userContact();
                     contact.setName(name);
                     contact.setID(id);
 
@@ -279,7 +283,8 @@ public class MainActivity extends AppCompatActivity {
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
-                    contactsList = loadContacts();
+                    contactsList.addAll(loadContacts());
+                    adapter.initFilter();
                     adapter.notifyDataSetChanged();
                 } else {
                     // permission denied, boo! Disable the

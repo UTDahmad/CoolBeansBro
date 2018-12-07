@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,19 +19,18 @@ import java.util.List;
 
 
 
-public class ContactDisplay extends ArrayAdapter<Contact> {
+public class ContactDisplay extends ArrayAdapter<userContact> {
 
         private LayoutInflater mInflater;
 
-        private List<Contact> mContacts = null;
+        private List<userContact> mContacts = null;
 
-        private ArrayList<Contact> arrayList; //used for the search bar
+        private ArrayList<userContact> arrayList; //used for the search bar
 
         private int layoutResource;
 
 
-
-        public ContactDisplay(@NonNull Context context, @LayoutRes int resource, @NonNull List<Contact> contacts) {
+        ContactDisplay(@NonNull Context context, @LayoutRes int resource, @NonNull List<userContact> contacts) {
 
             super(context, resource, contacts);
 
@@ -39,12 +39,13 @@ public class ContactDisplay extends ArrayAdapter<Contact> {
             layoutResource = resource;
 
 
-
             mContacts = null;
             this.mContacts = contacts;
 
+
             arrayList = new ArrayList<>();
             this.arrayList.addAll(mContacts);
+
         }
 
 
@@ -76,16 +77,60 @@ public class ContactDisplay extends ArrayAdapter<Contact> {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.name.setText(getItem(position).getName());
-            holder.number.setText(getItem(position).getNumber());
+            holder.name.setText(arrayList.get(position).getName());
+            holder.number.setText(arrayList.get(position).getNumber());
 
             return convertView;
         }
 
+        @Override
+        public int getCount() {
+            return arrayList.size();
+        }
+
+
+        private Filter myFilter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults filterResults = new FilterResults();
+                ArrayList<userContact> tempList=new ArrayList<userContact>();
+
+                for (userContact c:mContacts){
+                    if (c.getName().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        tempList.add(c);
+                    }
+                }
+
+                filterResults.values = tempList;
+
+                return filterResults;
+            }
+
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence contraint, FilterResults results) {
+                arrayList = (ArrayList<userContact>) results.values;
+
+                if (results.count > 0) {
+                    notifyDataSetChanged();
+                } else {
+                    notifyDataSetInvalidated();
+                }
+            }
+        };
+
+
+    @NonNull
     @Override
-    public int getCount() {
-        return mContacts.size();
+    public Filter getFilter() {
+        return myFilter;
     }
+
+    void initFilter(){
+        arrayList = new ArrayList<>();
+        this.arrayList.addAll(mContacts);
+    }
+
 }
 
 
